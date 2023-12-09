@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { TextInput, StyleSheet, Text, View, Image, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
-import firestore from "@react-native-firebase/firestore"
+import { firebase } from '../FirebaseConfig';
 function Add({ navigation }) {
 
  
   const addDeck = () =>{
-    firestore().doc("title").add({
+    firebase.firestore().doc("title").add({
       cards: [word, definition]
     })
   }
-   
   
 
   const[word, setWord] = useState();
